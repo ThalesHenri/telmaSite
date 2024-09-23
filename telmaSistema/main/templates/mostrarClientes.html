@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+
+        <div class="product-list">
+            {% if mostrarClientes %}
+                {% for cliente in mostrarClientes %}
+                <div class="product-item">
+                    <h3>{{ cliente.nome }}</h3>
+                    <p>CPF: {{ cliente.cpf }}</p>  
+                    <p>Telefone: {{ cliente.telefone }}</p>
+                    <div class="product-actions">
+                        <!-- Edit Button -->
+                        <a href="{% url 'editarCliente' cliente.id %}" class="btn btn-edit">Edit</a>
+                        
+                        <!-- Delete Button -->
+                        <form action="{% url 'deletarCliente' cliente.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </div>                                              
+                </div>
+                {% endfor %}
+            {% else %}
+                <h3>Não há clientes cadastrados</h3>
+            {% endif %}
+        </div>
+
+{% endblock content %}

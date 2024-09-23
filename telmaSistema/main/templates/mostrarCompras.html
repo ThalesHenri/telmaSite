@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block content %}
+
+        <div class="product-list">
+            {% if mostrarCompras %}
+                {% for compras in mostrarCompras %}
+                <div class="product-item">
+                    <h3>Cliente -> {{ compras.cliente }}</h3>
+                    <p>Valor Pago: R$ {{ compras.valorPago }}</p>
+                    <p>Data da compra: {{ compras.dataCompra }}</p>
+                    <p>Produto Comprado: {{ compras.produtoComprado }}</p>
+                    <p>Quantidade de Produtos: {{ compras.quantidadeProdutos }}</p> 
+                    <p>Status do Pagamento: {{ compras.pagamento|yesno:"Pago,Não Pago" }}</p>
+                    {% if not compras.pagamento %}
+                        <form action="{% url 'marcar_pagamento' compras.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Marcar como Pago</button>
+                        </form>
+                    {% endif %}
+                    <div class="product-actions">
+                        <!-- Edit Button -->
+                        <a href="{% url 'editarCompras' compras.id %}" class="btn btn-edit">Edit</a>
+                        
+                        <!-- Delete Button -->
+                        <form action="{% url 'deletarCompras' compras.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-delete">Delete</button>
+                        </form>
+                    </div>          
+                </div>
+                {% endfor %}
+            {% else %}
+                <h3>Não há compras disponíveis</h3>
+            {% endif %}
+        </div>
+        
+        {% endblock content %}
+        

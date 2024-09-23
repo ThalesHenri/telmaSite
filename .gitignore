@@ -1,0 +1,42 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Django
+*.log
+*.pot
+*.pyc
+*.mo
+*.db
+*.sqlite3
+*.sqlite3-journal
+
+# Ignore Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Ignore environment variables
+.env
+
+# Virtual Environment
+venv/
+env/
+telmavenv/
+
+# VSCode settings
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+*.cover
+.hypothesis/
+.pytest_cache/

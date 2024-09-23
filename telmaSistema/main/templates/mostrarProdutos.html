@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+
+        <div class="product-list">
+            {% if mostrarProdutos %}
+                {% for produto in mostrarProdutos %}
+                <div class="product-item">
+                    <h3>{{ produto.nome }}</h3>
+                    <p>Preço: R$ {{ produto.preco }}</p>
+                    <p>Quantidade >> {{ produto.quantidade }}</p>
+                        {% if produto.foto %}
+                            <img src="{{ produto.foto.url }}" alt="{{ produto.nome }}" class="produtoFoto">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                        <div class="product-actions">
+                            <!-- Edit Button -->
+                            <a href="{% url 'editarProduto' produto.id %}" class="btn btn-edit">Edit</a>
+                            
+                            <!-- Delete Button -->
+                            <form action="{% url 'deletarProduto' produto.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-delete">Delete</button>
+                            </form>
+                        </div>                 
+                </div>
+                {% endfor %}
+            {% else %}
+                <h3>Não há produtos disponíveis</h3>
+            {% endif %}
+        </div>
+
+{% endblock content %}
