@@ -154,3 +154,7 @@ def deletarCompras(response, pk):
         return redirect('mostrarCompras')  
 
     return render(response, 'confirmarDelete.html', {'compras': compras})
+
+
+def ajuda(response):
+    return render(response,'ajuda.html')

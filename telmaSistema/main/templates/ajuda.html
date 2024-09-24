@@ -1,0 +1,69 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="documentacao">
+    <h1>Documentação do Sistema de Gerenciamento</h1>
+
+    <h2>1. Produto</h2>
+    <p>Esta entidade permite registrar os produtos disponíveis. Cada produto contém os seguintes campos:</p>
+    <ul>
+        <li><strong>Nome:</strong> Nome do produto (campo obrigatório).</li>
+        <li><strong>Preço:</strong> Valor do produto (campo obrigatório).</li>
+        <li><strong>Peso:</strong> Peso do produto em gramas ou quilogramas (campo obrigatório).</li>
+        <li><strong>Quantidade:</strong> Quantidade disponível do produto em estoque (campo obrigatório).</li>
+        <li><strong>Foto:</strong> Imagem do produto para facilitar sua identificação visual (campo opcional).</li>
+    </ul>
+
+    <h3>Ações possíveis:</h3>
+    <ul>
+        <li>Adicionar novo produto.</li>
+        <li>Editar produto existente.</li>
+        <li>Excluir produto.</li>
+        <li>Visualizar lista de produtos cadastrados.</li>
+    </ul>
+
+    <h2>2. Cliente</h2>
+    <p>Entidade responsável pelo cadastro dos clientes, contendo as seguintes informações:</p>
+    <ul>
+        <li><strong>Nome:</strong> Nome completo do cliente (campo obrigatório).</li>
+        <li><strong>CPF:</strong> Cadastro de Pessoa Física, usado para identificação (campo obrigatório).</li>
+        <li><strong>Telefone:</strong> Número de telefone para contato com o cliente (campo opcional).</li>
+    </ul>
+
+    <h3>Ações possíveis:</h3>
+    <ul>
+        <li>Adicionar novo cliente.</li>
+        <li>Editar dados de um cliente existente.</li>
+        <li>Excluir cliente.</li>
+        <li>Visualizar lista de clientes cadastrados.</li>
+    </ul>
+
+    <h2>3. Compras</h2>
+    <p>A entidade compras é responsável por registrar todas as compras realizadas por clientes. Cada compra contém:</p>
+    <ul>
+        <li><strong>Nome do Cliente:</strong> Seleção de um cliente previamente cadastrado (campo obrigatório).</li>
+        <li><strong>Produto Comprado:</strong> Seleção do produto que foi comprado (campo obrigatório).</li>
+        <li><strong>Quantidade do Produto:</strong> Quantidade de unidades do produto compradas (campo obrigatório).</li>
+        <li><strong>Preço:</strong> Preço final da compra, calculado de acordo com a quantidade e preço do produto (campo automático, mas pode ser ajustado manualmente).</li>
+        <li><strong>Pagamento:</strong> Checkbox para marcar se o pagamento foi realizado ou está pendente.</li>
+        <li><strong>Data da Compra:</strong> Data em que a compra foi realizada (campo obrigatório).</li>
+    </ul>
+
+    <h3>Ações possíveis:</h3>
+    <ul>
+        <li>Registrar nova compra.</li>
+        <li>Editar compra existente.</li>
+        <li>Excluir compra.</li>
+        <li>Visualizar todas as compras feitas.</li>
+    </ul>
+
+    <h2>Fluxo de Operação:</h2>
+    <ol>
+        <li><strong>Cadastro de Produto:</strong> Comece cadastrando todos os produtos disponíveis no sistema. Certifique-se de preencher corretamente o nome, preço, peso, quantidade, e, opcionalmente, adicionar uma imagem.</li>
+        <li><strong>Cadastro de Cliente:</strong> Antes de registrar uma compra, certifique-se de que o cliente esteja cadastrado no sistema. Insira os dados de identificação, como nome, CPF, e telefone.</li>
+        <li><strong>Registro de Compra:</strong> Ao efetuar uma venda, selecione o cliente e os produtos comprados. Registre a quantidade adquirida, marque se o pagamento foi realizado, e insira a data da compra.</li>
+    </ol>
+
+    <h2>Considerações Finais:</h2>
+    <p>O sistema é intuitivo e simples, facilitando o gerenciamento de produtos, clientes e compras. Certifique-se de manter todos os registros atualizados para controle adequado de estoque e clientes.</p>
+</div>
+{% endblock content %}
